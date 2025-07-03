@@ -17,8 +17,8 @@ interface ListResponse {
   branches: Branch[];
 }
 
-export const list = api(
-  { expose: false, method: "GET", path: "/branch" },
+export const listBranch = api(
+  { expose: true, method: "GET", path: "/branch" },
   async (): Promise<ListResponse> => {
     const rows = db.query`
         SELECT id, name, branch_id, address, phone_number, open_hour, close_hour
